@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            background-image: url(assets/css/2.jpg);
+            background-size: cover;
+        }
+        section
+        {
+            
+            width: 400px;
+            height: 100px;
+            margin: 100px auto;
+        }
+        div{
+            width: 100%;
+            margin: 15px auto;
+        }
+        label{
+            display: block;
+            padding:20px;
+            font-size: 25px;
+        }
+        input{
+            width: 85%;
+            padding: 10px;
+            border: 1px rgb(221, 18, 18);
+            margin-left: 20px;
+            border-radius: 3px;
+        }
+        span
+        {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+        }
+        fieldset
+        {
+            background-color: rgb(192, 220, 233);
+        }
+        h1{
+            text-align: center;
+            color: rgb(0, 0, 0);
+            text-decoration-style:double;
+            font-style:normal
+        }
+        .submit
+        {
+           
+            background-color: #e9ece9; /* Green */
+            border: none;
+            color: rgb(2, 0, 0);
+            padding: 8px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1><U>Gateways 2022</U></h1>
+   <section>
+    <fieldset>
+        <div>
+            <h1><u>USER REGISTRATION</u></h1>
+        <form action="" id="register">
+         <div>
+             <label for="name">Name</label>
+             <input type="text" oninput="disable()" id="name" placeholder="YOUR NAME">
+             <span></span>
+         </div>
+         <div>
+            <label for="email">Email</label>
+            <input type="email" onclick="enable()" id="email" placeholder="Email-id">
+            <span></span>
+        </div>
+            
+            
+         <div>
+            <label for="branch">BRANCH</label>
+            <input type="text" id="branch" placeholder="BRANCH">
+            <span></span>
+        </div>
+        <div>
+            <label for="college">COLLEGE/UNIVERSITY</label>
+            <input type="text" id="college" placeholder="COLLEGE/UNIVERSITY">
+            <span></span>
+        </div>
+        <div>
+            <label for="state">STATE</label>
+            <input type="text" id="state" placeholder="STATE">
+            <span></span>
+        </div>
+        <div>
+            <label for="address">ADDRESS</label>
+            <input type="text" id="address" placeholder="ADDRESS">
+            <span></span>
+        </div>
+    
+        <div>
+            <label for="age">AGE</label>
+            <input type="integer"  onclick="enable()" oninput="disable_char()" id="age" placeholder="AGE">
+            <span></span>
+        </div>
+        <div>
+            <label for="number">Phone-Number</label>
+            <input type="integer"  onclick="enable()" oninput="disable_char()" id="number" placeholder="Phone-Number">
+            <span></span>
+        </div>
+         
+         <div>
+             <label for="uname">USERNAME</label>
+             <input type="text"  onclick="enable()"  id="uname" placeholder="USERNAME">
+             <span></span>
+         </div>
+         <div>
+             <label for="password">PASSWORD</label>
+             <input type="password" onclick="enable()"  id="password" placeholder="PASSWORD">
+             <span></span>
+         </div>
+         <div>
+             <input class="submit"  onclick="check()" type="submit" id="sub">
+        </form>
+        </div>
+     </fieldset>
+   </section> 
+</body>
+</html>
+<script>
+     var name=document.getElementById('name');
+    var email=document.getElementById('email');
+    var branch=document.getElementById('branch');
+    var span=document.getElementsByTagName('span');
+    var college=document.getElementById('college');
+    var state=document.getElementById('state');
+    var address=document.getElementById('address');
+    var age=document.getElementById('age');
+    var number=document.getElementById('number');
+    var uname=document.getElementById('uname');
+    var pass = document.getElementById('password');
+
+    function disable()
+    {
+     document.onkeydown = function (e) 
+     {
+       
+      
+      if (e.which >= 48 && e.which <= 57) {
+      return false;
+      }
+     }
+    }
+    
+    function enable()
+    {
+     document.onkeydown = function (e) 
+     {
+      return true;
+      
+     }
+    }
+    
+
+    function disable_char()
+    {
+
+     document.onkeydown = function (e) 
+     {
+       
+      
+      if (e.which >= 65 && e.which <= 90) {
+      return false;
+      }
+     }
+    }
+
+
+    email.onkeydown=function()
+    {
+      
+	var reg3=/^([a-zA-z0-9.]{4,20})@(c|C)hristuniversity.in$/;
+	var match=/^.*(?=@christuniversity.in)$/;
+	if(reg3.test(email.value))
+	{
+		span[1].innerText="Your Email is Valid";
+         span[1].style.color="green";
+	}
+	else
+	{
+		span[1].innerText="Invalid Email Id";
+           span[1].style.color="red";
+	}
+    }
+       number.onkeydown=function()
+       {
+           
+          const regnum=/^[0-9]{9}$/;
+          if(regnum.test(number.value))
+       {
+         span[7].innerText="Your Number is Valid";
+         span[7].style.color="green";  
+       }
+       else{
+           span[7].innerText="Invalid Phone Number";
+           span[7].style.color="red";
+       }   
+       }
+       age.onkeydown=function()
+       {
+          
+          if(!(age.value<0))
+       {
+         span[6].innerText=" Valid";
+         span[6].style.color="green";  
+       }
+       else{
+           span[6].innerText="Enter valid age";
+           span[6].style.color="red";
+       }   
+       }
+
+       pass.onkeydown=function() {
+        const pass1 =/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])\S{8,}/;
+         if(pass1.test(pass.value))
+       {
+
+         span[9].innerText="Valid password";
+         span[9].style.color="green";  
+       }
+       else{
+        span[9].innerText="Invalid password";
+        span[9].style.color="red"; 
+
+       }
+       function unameupper()
+       {
+           alert("wldfjwjl");
+        
+       }
+
+				
+    }
+    function check()
+    {
+        
+        addCookie();
+    }
+
+
+
+
+    //cokkies
+    function addCookie()
+{
+    var email = document.getElementById("email").value
+    var phone = document.getElementById("number").value
+    if((email.trim() != "")  && (phone.trim() != ""))
+    {
+        document.cookie = "email=" + email + ";expires=Fri, 20 Feb 2022 00:00:00 UTC;"
+        document.cookie = "phone=" + phone + ";expires=Fri, 20 Feb 2022 00:00:00 UTC;"
+        localStorage.setItem('email', email)
+        localStorage.setItem('phone', phone)
+        sessionStorage.setItem('email', email)
+        sessionStorage.setItem('phone', number)
+        alert("DATA STORED")
+        window.age.reload()
+    }
+    else
+    {
+        alert("ENTER THE DETAILS")
+    }
+}
+
+   
+</script>

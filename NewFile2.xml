@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CHRIST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="NewXMLSchema.xsd">
+<COMPUTER_SCIENCE>
+<STU_NAME>XYZ</STU_NAME>
+<STU_UNIVERSITY>ABC<STU_UNIVERSITY>
+<STU_PHONE>1234567890</STU_PHONE>
+<STU_EMAIL>XYZ@GMAIL</STU_EMAIL>
+</COMPUTER_SCIENCE>
+</CHRIST>
